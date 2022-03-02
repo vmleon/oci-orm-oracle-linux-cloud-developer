@@ -1,6 +1,4 @@
 provider "oci" {
-  fingerprint          = var.api_fingerprint
-  private_key_path     = var.api_private_key_path
   region               = var.region
   tenancy_ocid         = var.tenancy_ocid
   user_ocid            = var.current_user_ocid
@@ -15,14 +13,6 @@ variable "tenancy_ocid" {
 }
 
 variable "compartment_ocid" {
-  type = string
-}
-
-variable "api_private_key_path" {
-  type = string
-}
-
-variable "api_fingerprint" {
   type = string
 }
 

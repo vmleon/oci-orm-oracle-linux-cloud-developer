@@ -1,0 +1,60 @@
+title: Oracle Linux Cloud Developer Stack
+description: Explore how to use Oracle Linux Cloud Developer 8 with OCI Resource Manager
+informationalText: This stack deploy an Oracle Linux Cloud Developer 8 compute instance
+
+schemaVersion: 1.1.0
+version: "20220301"
+
+logoUrl: https://pbs.twimg.com/profile_images/1108568611113689088/9bfcUA9t_400x400.png
+
+locale: "en"
+variableGroups:
+  - title: "Basic Hidden"
+    variables:
+    - tenancy_ocid
+    - current_user_ocid
+    - region
+    visible: false
+  - title: "General Configuration"
+    variables:
+    - compartment_ocid
+  - title: "Compute Details"
+    variables:
+      - ${instance_name}
+      - ${instance_shape}
+      - ${instance_ocpus}
+      - ${instance_shape_config_memory_in_gbs}
+      - ${ssh_public_key}
+
+variables:
+  compartment_ocid:
+    type: oci:identity:compartment:id
+    title: "Compartment"
+    description: "The compartment in which to create compute instance"
+    required: true
+  instance_name:
+    type: string
+    minLength: 3
+    maxLength: 255
+    pattern: "^[a-z][a-zA-Z0-9]+$"
+    title: "Instance Name"
+    description: "Enter your compute instance name"
+    default: "developer"
+    required: true
+  instance_shape:
+    type: enum
+    enum:
+    - "VM.Standard.E3.Flex"
+  instance_ocpus:
+    type: integer
+    description: "Number of OCPUs"
+    minimum: 1
+    maximum: 4
+    default: 1
+  instance_shape_config_memory_in_gbs:
+    type: integer
+    description: "Amount of memory (GB)"
+    minimum: 8
+    maximum: 32
+    multipleOf: 8
+    default: 8

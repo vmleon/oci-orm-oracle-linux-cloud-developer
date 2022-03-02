@@ -1,3 +1,3 @@
 #!/bin/sh
 
-zip stack *.tf *.yml
+zip ol8dev *.tf *.yaml
