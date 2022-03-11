@@ -2,6 +2,9 @@
 
 Deploy an Oracle Linux 8 with all the Cloud Developer tools with this terraform stack with OCI Resource Manager.
 
+[![Deploy to Oracle Cloud](https://oci-resourcemanager-plugin.plugins.oci.oraclecloud.com/latest/deploy-to-oracle-cloud.svg)]
+(https://cloud.oracle.com/resourcemanager/stacks/create?zipUrl=https://github.com/vmleon/oci-orm-oracle-linux-cloud-developer/releases/download/v0.1.0/ol8dev.zip)
+
 Run the script to generate the ZIP file:
 ```bash
 ./genzip.sh
